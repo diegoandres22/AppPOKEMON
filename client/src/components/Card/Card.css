@@ -1,0 +1,25 @@
+:root{
+    --fondoCarta: rgba(81, 255, 226, 0.336);
+    --fontSise: 'Courier New', Courier, monospace;
+}
+  
+
+.carta {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: auto;
+    background-color:var(--fondoCarta) ;
+    text-align: center;
+    border-radius: 40px;
+    margin: 20px;
+    font-family: var(--fontSise);
+    font-size: 20px;
+}
+
+.imgCart{
+    height: 30vh;
+}
+.titleCart{
+    font-size: 30px;
+}

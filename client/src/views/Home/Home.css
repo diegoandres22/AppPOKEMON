@@ -1,0 +1,37 @@
+.homeCont {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    position:absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url("../../assets/pokemon_collage.png");
+    min-height: 97%;
+    color: aliceblue;
+    
+}
+.rabarra{
+    
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+   
+}
+.filtAndOrd{
+    display: flex;
+    
+    margin: auto 5% auto auto;
+}
+.listita{
+    margin: auto;
+    background-color: rgb(0, 255, 200);
+    margin: auto 5px;
+}
+
+.pagiCont{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
