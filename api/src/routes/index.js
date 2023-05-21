@@ -2,11 +2,9 @@ const { Router } = require('express');
 
 // Ejemplo: const authRouter = require('./auth.js');
 const { getPokemons, getPokemonsById, getPokemonsByName, postPokemon, updatePokemon, deletePokemon, getApiPokemons } = require('../controllers/pokemonsHandlers');
-<<<<<<< HEAD
+
 const { getTypeOfPokemons, postType, deleteType, postTypeBdd, getApiByType } = require('../controllers/typeHandlers');
-=======
-const { getTypeOfPokemons, postType, deleteType ,postTypeBdd } = require('../controllers/typeHandlers');
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
+
 const { postUser, getUsers, deleteUser, getUserByEmail } = require('../controllers/usersHandler');
 
 const router = Router();
@@ -28,11 +26,9 @@ router.get("/pokemon/get/", async (req, res) => {
         return res.status(200).json(pokeFound);
 
     } catch (error) {
-<<<<<<< HEAD
+
         return res.status(400).json({ error: error.message, description: `no hay pokemon que se llame: ${nombre}` });
-=======
-        return res.status(400).json({ error: error.message, description: `no hay pokemon que se llame: ${nombre}`});
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
+
     }
 });
 //  getPokemonsById
@@ -58,7 +54,17 @@ router.post("/pokemon/add", async (req, res) => {
     try {
         const { nombre, imagen, vida, ataque, defensa, velocidad, altura, peso, tipos } = req.body;
 
-        if (!nombre || !imagen || !vida || !ataque || !defensa || !tipos) throw Error('Falta algún dato');
+        if (!nombre  ) throw Error('Falta algún nombre');
+        
+        if ( !imagen ) throw Error('Falta algún imagen');
+        
+        if ( !vida ) throw Error('Falta algún vida');
+        
+        if ( !ataque ) throw Error('Falta algún ataque');
+        
+        if ( !defensa ) throw Error('Falta algún defensa');
+        
+        if ( !tipos) throw Error('Falta algún tipo');
 
         const newPoke = await postPokemon(nombre, imagen, vida, ataque, defensa, velocidad, altura, peso, tipos);
 
@@ -105,15 +111,13 @@ router.delete("/pokemon/delete/:id", async (req, res) => {
 });
 //-------------------POKEMONS API--------------------------
 router.get("/pokemonapi/get/", async (req, res) => {
-<<<<<<< HEAD
 
-=======
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
+
     try {
 
         const todos = await getApiPokemons();
 
-<<<<<<< HEAD
+
         if (!todos) throw Error('no hay');
 
         return res.status(200).json(todos);
@@ -134,9 +138,8 @@ router.get("/pokemonapi/getByType/", async (req, res) => {
         const todos = await getApiByType(type);
 
         if (todos.error) throw Error(todos.error);
-=======
+
         if (!todos) throw Error(todos.error);
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
 
         return res.status(200).json(todos);
 
@@ -174,11 +177,7 @@ router.post("/type/add", async (req, res) => {
 });
 router.post("/type/bddadd", async (req, res) => {
     try {
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
         const newType = await postTypeBdd();
 
         return res.status(200).json(newType);

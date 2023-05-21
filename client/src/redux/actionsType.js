@@ -13,3 +13,6 @@ export const ORDER_POKEMONS = "ORDER_POKEMON";
 
 export const BY_BASE_LOCAL = "BY_BASE_LOCAL";
 
+export const POST_POKEMON = "POST_POKEMON";
+
+export const DELETE_POKEMON = "DELETE_POKEMON";

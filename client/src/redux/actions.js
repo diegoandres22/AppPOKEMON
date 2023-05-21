@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_POKEMONS, NEXT_PAGE, BACK_PAGE, ORDER_POKEMONS, FILTER_POKEMONS, BY_BASE_LOCAL, GET_POKEMON_id, GET_POKEMON_NAME } from './actionsType';
+import { GET_POKEMONS, NEXT_PAGE, BACK_PAGE, ORDER_POKEMONS, FILTER_POKEMONS, BY_BASE_LOCAL, GET_POKEMON_id, GET_POKEMON_NAME,  } from './actionsType';
 
 
 export const getPokemons = () => {
@@ -60,4 +60,19 @@ export const getPokemonByName = (name) => {
     };
 };
 
+
+export const postPokemon = (pokemon) => {
+    return async () => {
+        const post = await axios.post(`http://localhost:3001/pokemon/add`, pokemon);
+        console.log(post);
+        return post;
+    };
+};
+
+export const deletePokemon = (idPokemon) => {
+    return async () => {
+        const post = await axios.delete(`http://localhost:3001/pokemon/delete/${idPokemon}`);
+        return post;
+    };
+};
 // 

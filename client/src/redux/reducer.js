@@ -1,4 +1,4 @@
-import { GET_POKEMONS, BACK_PAGE, NEXT_PAGE, ORDER_POKEMONS, FILTER_POKEMONS, BY_BASE_LOCAL, GET_POKEMON_id, GET_POKEMON_NAME } from "./actionsType";
+import { GET_POKEMONS, BACK_PAGE, NEXT_PAGE, ORDER_POKEMONS, FILTER_POKEMONS, BY_BASE_LOCAL, GET_POKEMON_id, GET_POKEMON_NAME, POST_POKEMON, DELETE_POKEMON } from "./actionsType";
 const initialState = {
     aPokemon: [],
     pokemons: [],
@@ -24,7 +24,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
             const pokeFiltred = state.pokemons.filter(poke => {
                 let veri = poke.types;
                 if (veri.includes(payload)) return poke;
-                
+
             })
 
             return {
@@ -76,14 +76,27 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 aPokemon: state.pokemons.filter(poke => poke.id === +payload)
 
             }
-            case GET_POKEMON_NAME:
-                return {
-                    ...state,
-                    aPokemon: payload
-                };
+        case GET_POKEMON_NAME:
+            return {
+                ...state,
+                aPokemon: payload
+            };
+
+        case POST_POKEMON:
+            return {
+                ...state,
+            };
+        case DELETE_POKEMON:
+            return {
+                ...state,
+            };
+
         default:
             return { ...state };
+
     }
 };
 
 export default rootReducer;
+
+// 

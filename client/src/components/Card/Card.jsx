@@ -8,7 +8,7 @@ const Card = ({ id, nombre, imagen, types}) => {
         id.length > 30 ? types = types.map(typ => typ.name) : types = types.map(tip => tip);
 
         return (
-            <Link to= {`/detail/${id}`}>
+            <Link className="linkcarta" to= {`/detail/${id}`}>
                 <div className="carta">
 
                     <b className='titleCart'> {nombre} </b>

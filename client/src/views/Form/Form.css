@@ -1,0 +1,36 @@
+.error {
+
+    color: red;
+    text-shadow: 0 0 2px black;
+    font-size: 15px;
+}
+
+.crearcont {
+    display: flex;
+}
+
+.crear {
+    background: transparent;
+    display: flex;
+    border: none;
+    height: 80px;
+    width: 200px;
+    background: url("./../../assets/crear.png");
+    background-size: cover;
+    cursor: pointer;
+    transition: .5s;
+
+}
+
+.crear:disabled {
+    opacity: .3;
+    transform: scale(.8);
+    cursor: no-drop;
+}
+
+
+
+.crear:hover {
+    margin-top: 5%;
+    transform: scale(1.3);
+}

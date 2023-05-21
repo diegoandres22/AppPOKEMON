@@ -1,24 +1,29 @@
 import './NavBar.css'
 
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar/SearchBar";
 
 const NavBar = () => {
+
+
+    const location = useLocation();
+
     return (
         <nav className='nav'>
 
-            <button className='botonSearch'>
-                <Link className='btntext' to='/'> LOGO @ </Link>
+            <button className='logocont'>
+                <Link className='logo' to='/'> </Link>
             </button>
 
-            <button className='botonSearch'>
+            {location.pathname !== "/form" && <button className='botonSearch'>
                 <Link className='btntext' to='/form'> Añadir </Link>
-            </button>
+            </button> }
 
-            <SearchBar/>
+            {location.pathname === "/home" && <SearchBar />}
+
 
             <button className='botonSearch'>
-            <a href="">favoritos</a>
+                <a className='btntext' href="">favoritos</a>
             </button>
 
             <button className='botonSearch'>

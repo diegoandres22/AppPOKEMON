@@ -1,3 +1,4 @@
+import "./SearchBar.css"
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -17,12 +18,13 @@ const SearchBar = () => {
     }
 
     return (
-        <div className=''>
-            <input className=' ' onChange={handleChange} type='text' value={poke} placeholder='Buscar por nombre' />
+        <div className='searcont'>
+            <input className='searbar' onChange={handleChange} type='text' value={poke} placeholder='Buscar por nombre' />
 
-            <Link to={`/detailbyname`}>
-                <button onClick={() => { handlePoke(poke); setPoke('') }} className="" >Buscar</button>
-            </Link>
+            {poke.length > 0 && <Link className="searcontbut" to={`/detailbyname`}>
+                <button className='searbut' onClick={() => { handlePoke(poke); setPoke('') }}  ></button>
+            </Link>}
+
 
         </div>
     );

@@ -1,8 +1,19 @@
 import './Landing.css';
 
 import { Link } from "react-router-dom"
+import { useState } from 'react';
 
 const Landing = () => {
+
+    const [state, setState] = useState(false);
+
+    const handletrue = () => {
+        setState(true)
+    }
+    const handlecfalse = () => {
+        setState(false)
+    }
+
     return (
 
         <div className='landinContent' >
@@ -17,14 +28,13 @@ const Landing = () => {
 
                 <Link className='home' to="home"> Comenzar </Link>
             </div>
+
             <div className="end">
 
-                <div className="fomr">
-                    <p className='text'>Por que no le sacas mayor provecho? </p>
-                    <div className="switch">
-                        <p className='ing'>Ingresar </p>
-                        <p className='reg'>Registrarme </p>
-                    </div>
+                <p className='text'>Por que no le sacas mayor provecho? </p>
+
+                {state && <form className="fomr">
+
                     <div className="formu">
                         <label className='label'>Email</label>
                         <input type="text" />
@@ -32,11 +42,37 @@ const Landing = () => {
                         <label className='label'>contraseña</label>
                         <input type="text" />
 
-                        <b className='boton'>ingresar/registrarme</b>
-                        
+                        <button className='home'>ingresar</button>
+
                     </div>
-                    <p>Así podrás almacenar tus  pokemones favoritos, añadir pokemones, enterarte de las ultimas noticias acerca de este mundo y poder disfrutar de las futuras modificaciones de la plataforma!</p>
+                </form>}
+
+                {!state && <form className="fomr">
+
+                    <div className="formu">
+                        <label className='label'>Email</label>
+                        <input type="text" />
+
+                        <label className='label'>contraseña</label>
+                        <input type="text" />
+
+                        <button className='home'>Registrarme</button>
+                    </div>
+
+                </form>}
+
+                <div className="switch">
+
+                    {!state && <p >Tengo una cuenta, quiero <button className='btnswitch' onClick={handletrue}>Ingresar</button></p>
+                    }
+
+                    {state && <p >No tengo cuenta, quiero <button className='btnswitch' onClick={handlecfalse}>Registrarme</button> </p>}
+
                 </div>
+
+                <p>Así podrás almacenar tus  pokemones favoritos, añadir pokemones, enterarte de las ultimas noticias acerca de este mundo y poder disfrutar de las futuras modificaciones de la plataforma!</p>
+
+
 
             </div>
         </div>

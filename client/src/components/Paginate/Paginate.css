@@ -1,6 +1,17 @@
-.pagCont{
+:root {
+    --fontSise: 'Courier New', Courier, monospace;
+    --capaOscura: #00000044;
+    --options: #00fcc5;
+}
+
+
+.pagCont {
     display: flex;
-    border: 2px solid black;
     width: 200px;
+    height: 30px;
     justify-content: space-between;
+    font-family: var(--fontSise);
+    font-weight: 900;
+    font-size: 15px;
+    margin-bottom: 2%;
 }

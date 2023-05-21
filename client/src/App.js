@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-import './app.css';
+import "./App.css";
 
 import { Route, useLocation } from "react-router-dom";
 import { Landing, Form, Home, DetailCont } from "./views";
@@ -35,14 +34,6 @@ function App() {
       <Route path="/detailbyname">
         <ViewPoke/>
       </Route>
-=======
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <h1>Henry Pokemon</h1>
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
     </div>
   );
 }

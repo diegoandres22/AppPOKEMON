@@ -37,33 +37,33 @@ const Home = () => {
                 <div className="filtAndOrd">
                     <p>Ver: </p>
                     <select className="listita" onChange={handleOrigin}>
-                        <option value="todos">Todos</option>
-                        <option value="base">Creados</option>
-                        <option value="api">Pokemones</option>
+                        <option className='toma' value="todos">Todos</option>
+                        <option className='toma' value="base">Creados</option>
+                        <option className='toma' value="api">Pokemones</option>
                     </select>
 
                     <p>Ordenar por: </p>
                     <select className="listita" onChange={handleOrder}>
-                        <option value="A">Ascendente</option>
-                        <option value="D">Descendente</option>
+                        <option className='toma' value="A">Ascendente</option>
+                        <option className='toma' value="D">Descendente</option>
                     </select>
                     <select className="listita" onChange={handleOFilter}>
-                        <option value="normal">normal</option>
-                        <option value="fighting">fighting</option>
-                        <option value="flying">flying</option>
-                        <option value="poison">poison</option>
-                        <option value="ground">ground</option>
-                        <option value="rock">rock</option>
-                        <option value="bug">bug</option>
-                        <option value="ghost">ghost</option>
-                        <option value="steel">steel</option>
-                        <option value="fire">fire</option>
-                        <option value="water">water</option>
-                        <option value="grass">grass</option>
-                        <option value="electric">electric</option>
-                        <option value="psychic">psychic</option>
-                        <option value="ice">ice</option>
-                        <option value="fairy">fairy</option>
+                        <option className='toma' value="normal">normal</option>
+                        <option className='toma' value="fighting">fighting</option>
+                        <option className='toma' value="flying">flying</option>
+                        <option className='toma' value="poison">poison</option>
+                        <option className='toma' value="ground">ground</option>
+                        <option className='toma' value="rock">rock</option>
+                        <option className='toma' value="bug">bug</option>
+                        <option className='toma' value="ghost">ghost</option>
+                        <option className='toma' value="steel">steel</option>
+                        <option className='toma' value="fire">fire</option>
+                        <option className='toma' value="water">water</option>
+                        <option className='toma' value="grass">grass</option>
+                        <option className='toma' value="electric">electric</option>
+                        <option className='toma' value="psychic">psychic</option>
+                        <option className='toma' value="ice">ice</option>
+                        <option className='toma' value="fairy">fairy</option>
                     </select>
                 </div>
             </div>

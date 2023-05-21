@@ -2,11 +2,8 @@ require("dotenv").config();
 const { Types } = require('../db');
 const axios = require("axios");
 
-<<<<<<< HEAD
 const url_api_tipes = "https://pokeapi.co/api/v2/type";
 
-=======
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
 const getTypeOfPokemons = async () => {
 
     const types = await Types.findAll();
@@ -38,26 +35,22 @@ const deleteType = async (id) => {
 
     return "Tipo eliminado correctamente"
 }
-const postTypeBdd = async () => {
+// const postTypeBdd = async () => {
 
-    // const newType = { name };
-    // const type = await Types.create(newType);
-    let types = await Types.findAll();
-<<<<<<< HEAD
+//     // const newType = { name };
+//     // const type = await Types.create(newType);
+//     let types = await Types.findAll();
 
-    const response = await axios.get(`${url_api_tipes}`);
-=======
-    
-    const response = await axios.get('https://pokeapi.co/api/v2/type');
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
-    const apiTypes = response.data.results.map((type) => ({
-        name: type.name,
-    }));
-    types = await Types.bulkCreate(apiTypes);
+//     const response = await axios.get(`${url_api_tipes}`);
 
-    return "tipos cargados con éxito";
-}
-<<<<<<< HEAD
+//     const response = await axios.get('https://pokeapi.co/api/v2/type');
+//     const apiTypes = response.data.results.map((type) => ({
+//         name: type.name,
+//     }));
+//     types = await Types.bulkCreate(apiTypes);
+
+//     return "tipos cargados con éxito";
+// }
 const getApiByType = async (type) => {
 
     let result = [];
@@ -90,18 +83,10 @@ const getApiByType = async (type) => {
 
     return result;
 };
-=======
-
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
 
 module.exports = {
     getTypeOfPokemons,
     postType,
     deleteType,
-<<<<<<< HEAD
-    postTypeBdd,
     getApiByType
-=======
-    postTypeBdd
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
 }

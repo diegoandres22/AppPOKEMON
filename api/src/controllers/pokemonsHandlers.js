@@ -1,24 +1,17 @@
 require("dotenv").config();
 const { Pokemons, Types } = require('../db');
 const axios = require("axios");
-const { Op, INTEGER } = require('sequelize');
+const { Op } = require('sequelize');
 const URL_API = "https://pokeapi.co/api/v2/pokemon";
-<<<<<<< HEAD
 const urlApi = "https://pokeapi.co/api/v2/pokemon"
-=======
 
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
 
 const getPokemons = async () => {
     const pokemons = await Pokemons.findAll({
         include: {
             model: Types,
             attributes: ['name'],
-<<<<<<< HEAD
             through: { attributes: [] }
-=======
-            through:{attributes : []}
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
         }
     });
 
@@ -31,19 +24,11 @@ const getPokemonsById = async (id) => {
     if (id.length > 20) {
         const pokemonFound = await Pokemons.findByPk(id, {
             include: {
-<<<<<<< HEAD
                 model: Types,
                 attributes: ['name'],
                 through: { attributes: [] }
             }
 
-=======
-                    model: Types,
-                    attributes: ['name'],
-                    through:{attributes : []}
-                }
-            
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
         });
 
         if (pokemonFound) return pokemonFound;
@@ -51,7 +36,6 @@ const getPokemonsById = async (id) => {
 
     const response = await axios(`${URL_API}/${id}`);
     const pokemon = response.data;
-<<<<<<< HEAD
 
     const pokeApi = {
         id: pokemon.id,
@@ -67,23 +51,6 @@ const getPokemonsById = async (id) => {
     };
     return pokeApi;
 
-=======
-    
-        const pokeApi = {
-            id: pokemon.id,
-            nombre: pokemon.name,
-            imagen: pokemon.sprites.other.dream_world.front_default,
-            vida: pokemon.stats[0].base_stat,
-            ataque: pokemon.stats[1].base_stat,
-            defensa: pokemon.stats[2].base_stat,
-            velocidad: pokemon.stats[5].base_stat,
-            altura: pokemon.height,
-            peso: pokemon.weight,
-            types: pokemon.types.map((type) => type.type.name),
-        };
-        return pokeApi;
-    
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
 }
 
 const getPokemonsByName = async (name) => {
@@ -94,19 +61,11 @@ const getPokemonsByName = async (name) => {
                 [Op.iLike]: `%${name}%`
             }
         }, include: {
-<<<<<<< HEAD
             model: Types,
             attributes: ['name'],
             through: { attributes: [] }
         }
 
-=======
-                model: Types,
-                attributes: ['name'],
-                through:{attributes : []}
-            }
-        
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
     })
 
     if (pokedb[0]) {
@@ -153,11 +112,7 @@ const postPokemon = async (nombre, imagen, vida, ataque, defensa, velocidad, alt
         })
 
         await newPoke.setTypes(tipoFound);
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
     }
     return newPoke;
 }
@@ -200,13 +155,12 @@ const updatePokemon = async (id, nombre, imagen, vida, ataque, defensa, velocida
     return Poke;
 }
 ///////////////////////////////////// POKEMONS OF API---------------------
-<<<<<<< HEAD
 
 const getApiPokemons = async () => {
 
     let result = [];
 
-    for (let i = 1 ; i < 100 + 1; i++) {
+    for (let i = 1; i < 100 + 1; i++) {
 
         const response = await axios(`https://pokeapi.co/api/v2/pokemon/${i}`);
         const pokemon = response.data;
@@ -226,17 +180,7 @@ const getApiPokemons = async () => {
         result.push(pokeApi);
     }
     return result;
-=======
-const urlApi = "https://pokeapi.co/api/v2/pokemon"
-
-const getApiPokemons = async () => {
-    const response = await axios.get(urlApi);
-    const pokemons = response.data.results.map(({ name, url }) => ({ name, url }));
-    if (!pokemons.length) return { error: "No hay pokemons en la api" };
-    return pokemons;
->>>>>>> 33b52b7f722583c4da27e9d73c99e6553b156f6f
-};
-
+}
 
 module.exports = {
     getPokemons,
