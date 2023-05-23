@@ -14,8 +14,9 @@ const Validation = (newpokemon) => {
     if (!newpokemon.defensa) {
         errors.defensa = 'Colócale una cantidad de defensa a tu pokemon'
     }
-    
-
+    if (!newpokemon.imagen) {
+        errors.imagen = 'Colócale una imagen a tu pokemon'
+    }
 
     if (newpokemon.nombre.length > 20) {
         errors.nombre = 'El nombre no puede superar los 20 caracteres'

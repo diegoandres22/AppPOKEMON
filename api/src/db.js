@@ -54,5 +54,5 @@ const { Pokemons, Types, Users } = sequelize.models;
 
 module.exports = {
    ...sequelize.models, // para poder importar los modelos así: const { pokemons, types } = require('./db.js');
-   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
+   conn: sequelize, // para importart la conexión asi: { conn } = require('./db.js');
 };

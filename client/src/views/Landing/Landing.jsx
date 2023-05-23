@@ -26,7 +26,7 @@ const Landing = () => {
                     <h3 className='fondi'>Acá podrás ver toda la información acerca de los pokemones que gustes, ordenarlos de mayor a menor ataque o vice versa y verlos por tipo. </h3>
                 </div>
 
-                <Link className='home' to="home"> Comenzar </Link>
+                <Link className='comencont' to="home"><p className='comen'></p> </Link>
             </div>
 
             <div className="end">
@@ -42,7 +42,7 @@ const Landing = () => {
                         <label className='label'>contraseña</label>
                         <input type="text" />
 
-                        <button className='home'>ingresar</button>
+                        <button className='inici'></button>
 
                     </div>
                 </form>}
@@ -56,7 +56,7 @@ const Landing = () => {
                         <label className='label'>contraseña</label>
                         <input type="text" />
 
-                        <button className='home'>Registrarme</button>
+                        <button className='regist'></button>
                     </div>
 
                 </form>}

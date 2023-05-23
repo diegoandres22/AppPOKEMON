@@ -17,10 +17,9 @@ const NavBar = () => {
 
             {location.pathname !== "/form" && <button className='botonSearch'>
                 <Link className='btntext' to='/form'> Añadir </Link>
-            </button> }
+            </button>}
 
-            {location.pathname === "/home" && <SearchBar />}
-
+            <SearchBar />
 
             <button className='botonSearch'>
                 <a className='btntext' href="">favoritos</a>

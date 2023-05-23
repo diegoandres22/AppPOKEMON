@@ -1,15 +1,21 @@
 import './Home.css';
 
 import CardsCont from "../../components/CardsCont/CardsCont";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getPokemons, filterPokemons, orderPokemons, getByOrigin } from "../../redux/actions";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getPokemons, getTypes, filterPokemons, orderPokemons, getByOrigin } from "../../redux/actions";
 import Paginate from "../../components/Paginate/Paginate";
 
 
 const Home = () => {
 
     const dispatch = useDispatch();
+
+
+    const { types } = useSelector(state => state);
+
+
+
 
     const handleOrder = (event) => {
         dispatch(orderPokemons(event.target.value));
@@ -25,9 +31,9 @@ const Home = () => {
     useEffect(() => {
 
         dispatch(getPokemons())
+        dispatch(getTypes())
 
     }, []);
-
 
 
     return (
@@ -37,33 +43,30 @@ const Home = () => {
                 <div className="filtAndOrd">
                     <p>Ver: </p>
                     <select className="listita" onChange={handleOrigin}>
+
                         <option className='toma' value="todos">Todos</option>
                         <option className='toma' value="base">Creados</option>
-                        <option className='toma' value="api">Pokemones</option>
+                        <option className='toma' value="api">Api</option>
                     </select>
 
                     <p>Ordenar por: </p>
                     <select className="listita" onChange={handleOrder}>
-                        <option className='toma' value="A">Ascendente</option>
-                        <option className='toma' value="D">Descendente</option>
+                        <option value="todos" >Todos</option>
+                        <option className='toma' value="Asc">Ascendente</option>
+                        <option className='toma' value="Des">Descendente</option>
+                        <option className='toma' value="a-z">A-Z</option>
+                        <option className='toma' value="z-a">Z-A</option>
                     </select>
+
                     <select className="listita" onChange={handleOFilter}>
-                        <option className='toma' value="normal">normal</option>
-                        <option className='toma' value="fighting">fighting</option>
-                        <option className='toma' value="flying">flying</option>
-                        <option className='toma' value="poison">poison</option>
-                        <option className='toma' value="ground">ground</option>
-                        <option className='toma' value="rock">rock</option>
-                        <option className='toma' value="bug">bug</option>
-                        <option className='toma' value="ghost">ghost</option>
-                        <option className='toma' value="steel">steel</option>
-                        <option className='toma' value="fire">fire</option>
-                        <option className='toma' value="water">water</option>
-                        <option className='toma' value="grass">grass</option>
-                        <option className='toma' value="electric">electric</option>
-                        <option className='toma' value="psychic">psychic</option>
-                        <option className='toma' value="ice">ice</option>
-                        <option className='toma' value="fairy">fairy</option>
+
+                        <option value="todos">Todos</option>
+                        {types?.map((tipe, id) => {
+                            return (<option key={id} className='toma' value={tipe.name}>{tipe.name}</option>)
+
+                        })
+                        }
+
                     </select>
                 </div>
             </div>

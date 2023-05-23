@@ -15,22 +15,26 @@ const CardsCont = () => {
     return (
         <div className="cardCont">
 
-            {viewsPokemons.map(poke => {
+            {viewsPokemons.map((poke, index) => {
+
+                const key = index + 1;
+            
                 return <Card
-                    key={poke.id}
-                    nombre={poke.nombre}
-                    imagen={poke.imagen}
-                    vida={poke.vida}
-                    ataque={poke.ataque}
-                    defensa={poke.defensa}
-                    velocidad={poke.velocidad}
-                    altura={poke.altura}
-                    peso={poke.peso}
-                    id={poke.id}
-                    types={poke.types}
+
+                    key={key}
+                    id={poke?.id}
+                    nombre={poke?.nombre}
+                    imagen={poke?.imagen}
+                    vida={poke?.vida}
+                    ataque={poke?.ataque}
+                    defensa={poke?.defensa}
+                    velocidad={poke?.velocidad}
+                    altura={poke?.altura}
+                    types={poke?.types}
+                    peso={poke?.peso}
                 />
             })}
-           
+
 
         </div>
     )

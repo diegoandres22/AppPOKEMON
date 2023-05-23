@@ -19,24 +19,27 @@ const DetailCont = () => {
 
         dispatch(getPokemonById(id));
 
-    }, [ ]);
-   
+    }, []);
+
     return (
         <div >
-            { 
-                aPokemon.map(aPoke => {
+            {
+                aPokemon.map((aPoke, index) => {
+
+                    const aidi = index;
+
                     return <Detail
-                        key={aPoke.id}
-                        nombre={aPoke.nombre}
-                        imagen={aPoke.imagen}
-                        vida={aPoke.vida}
-                        ataque={aPoke.ataque}
-                        defensa={aPoke.defensa}
-                        velocidad={aPoke.velocidad}
-                        altura={aPoke.altura}
-                        peso={aPoke.peso}
-                        id={aPoke.id}
-                        types={aPoke.types} />
+                        key={aidi}
+                        nombre={aPoke?.nombre}
+                        imagen={aPoke?.imagen}
+                        vida={aPoke?.vida}
+                        ataque={aPoke?.ataque}
+                        defensa={aPoke?.defensa}
+                        velocidad={aPoke?.velocidad}
+                        altura={aPoke?.altura}
+                        peso={aPoke?.peso}
+                        id={aPoke?.id}
+                        types={aPoke?.types} />
                 })
             }
 

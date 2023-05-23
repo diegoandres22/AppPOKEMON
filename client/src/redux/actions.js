@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_POKEMONS, NEXT_PAGE, BACK_PAGE, ORDER_POKEMONS, FILTER_POKEMONS, BY_BASE_LOCAL, GET_POKEMON_id, GET_POKEMON_NAME,  } from './actionsType';
+import { GET_POKEMONS, NEXT_PAGE, BACK_PAGE, ORDER_POKEMONS, FILTER_POKEMONS, BY_BASE_LOCAL, GET_POKEMON_id, GET_POKEMON_NAME, GET_TYPES } from './actionsType';
 
 
 export const getPokemons = () => {
@@ -75,4 +75,14 @@ export const deletePokemon = (idPokemon) => {
         return post;
     };
 };
+export const getTypes = () => {
+    return async (dispatch) => {
+        const res = await axios.get(`http://localhost:3001/type/get`);
+        const types = res.data;
+
+        return dispatch({ type: GET_TYPES, payload: [...types] });
+    };
+};
+
+
 // 
